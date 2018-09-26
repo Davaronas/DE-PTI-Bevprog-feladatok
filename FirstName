@@ -3,7 +3,7 @@
 int main()
 
 {
-cout << "Please Enter your first fucking name\n";
+cout << "Please Enter your first name\n";
 string first_name;
 cin >> first_name;
 cout<< "Hello " << first_name << "!\n";
