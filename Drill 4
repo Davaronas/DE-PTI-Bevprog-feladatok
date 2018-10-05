@@ -1,0 +1,96 @@
+#include "std_lib_facilities.h"
+
+
+
+int main()
+{
+vector<double> Numbers;
+bool FoundFormat = false;
+int cycles = 0;
+double a;
+double Biggest = 0;
+double Smallest = 0;
+double Sum;
+string CheckInput;
+string Format;
+cout << "Enter numbers and cm,in,ft or m after them. Type | if you want to quit.\n";
+
+while (CheckInput != "|")
+	{
+		getline(cin,CheckInput);
+		if (CheckInput == "|")
+		{
+			break;
+		}
+		else
+		{
+			CheckInput.erase(std::remove(CheckInput.begin(), CheckInput.end(), ' '),CheckInput.end());
+			if (CheckInput.find("m") != string::npos)
+			{
+				Format = "m";
+				FoundFormat = true;
+			}
+			if (CheckInput.find("cm") != string::npos)
+			{
+				Format = "cm";
+				FoundFormat = true;
+			}
+			if (CheckInput.find("in") != string::npos)
+			{
+				Format = "in";
+				FoundFormat = true;
+			}
+			if (CheckInput.find("ft") != string::npos)
+			{
+				Format = "ft";
+				FoundFormat = true;
+			}
+			if (!FoundFormat)
+			{
+				cout << "Wrong format!";
+				break;
+			}
+			a = stoi(CheckInput);
+			if (Format == "cm")
+			{
+				a = a / 100;
+			}
+			if (Format == "in")
+			{
+				a = a * 2.54 / 100;
+			}
+			if (Format == "ft")
+			{
+				a = a * 12 * 2.54 / 100;
+			}
+		}
+		cout << '\n';
+		CheckInput = "";				
+		if (a > Biggest)
+		{
+			Biggest = a;
+			cout << "This is the largest number so far!\n";
+		}
+		if (a < Smallest)
+		{
+			Smallest = a;
+			cout << "This is the Smallest number so far!\n";
+		}
+	
+	Numbers.push_back(a);
+	Sum += a;
+	++cycles;
+	cout << "Smallest :" << Smallest << "m" <<' '<< "Largest :"<< Biggest 
+	<< "m" <<' '<<"Cycles :" << cycles <<' '<<"Sum :"<< Sum << "m" << '\n'; 
+	}
+
+int i;
+
+sort (Numbers.begin(),Numbers.end());
+
+for (int i = 0; i< Numbers.size(); ++i) 
+{
+ cout << Numbers[i] << "m" << '\n';
+}
+
+}
