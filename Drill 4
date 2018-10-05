@@ -50,7 +50,7 @@ while (CheckInput != "|")
 				cout << "Wrong format!";
 				break;
 			}
-			a = stoi(CheckInput);
+			a = stod(CheckInput);
 			if (Format == "cm")
 			{
 				a = a / 100;
