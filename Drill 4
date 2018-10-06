@@ -47,7 +47,7 @@ while (CheckInput != "|")
 			}
 			if (!FoundFormat)
 			{
-				cout << "Wrong format!";
+				cout << "Wrong format!\n";
 				break;
 			}
 			a = stod(CheckInput);
@@ -80,6 +80,7 @@ while (CheckInput != "|")
 	Numbers.push_back(a);
 	Sum += a;
 	++cycles;
+	FoundFormat = false;
 	cout << "Smallest :" << Smallest << "m" <<' '<< "Largest :"<< Biggest 
 	<< "m" <<' '<<"Cycles :" << cycles <<' '<<"Sum :"<< Sum << "m" << '\n'; 
 	}
